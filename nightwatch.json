@@ -1,0 +1,83 @@
+{
+	"src_folders" : ["tests"],
+	"output_folder" : "reports",
+	"custom_commands_path" : "custom-commands",
+	"custom_assertions_path" : "",
+	"page_objects_path" : ["./pages/tier2ICTSkillsTransferBlocks",
+		"./pages/tier2GeneralBlocks",
+		"./pages/tier4StudentBlocks",
+		"./pages/outOfCountryBlocks",
+		"./pages/inCountryBlocks",
+		"./pages/commonBlocks",
+		"./pages/customerChangeOfDetailsBlocks",
+		"./pages/psabBlocks"],
+	"globals_path" : "",
+  "live_output" : false,
+  "parallel_process_delay" : 1000,
+  "disable_colors": false,
+	"test_workers": {
+  "enabled": true,
+  "workers": "auto"
+	},   
+
+	"selenium" : {
+		"start_process" : true,
+		"server_path" : "./node_modules/selenium-server/lib/runner/selenium-server-standalone-3.3.0.jar",
+		"log_path" : "logs",
+		"port" : 4444,
+		"cli_args" : {
+			"webdriver.chrome.driver" : "./node_modules/chromedriver/bin/chromedriver",
+			"webdriver.gecko.driver" : "./node_modules/geckodriver/bin/geckodriver",
+			"webdriver.edge.driver" : ""
+		}
+	},
+
+	"test_settings" : {
+		"default" : {
+			"launch_url" : "http://localhost",
+			"selenium_port"  : 4444,
+			"selenium_host"  : "localhost",
+			"silent": true,
+			"screenshots" : {
+				"enabled" : true,
+				"on_failure" : true,
+				"on_error" : false,
+				"path" : "screenshots"
+			},
+			"desiredCapabilities": {
+				"browserName" : "phantomjs",
+				"javascriptEnabled" : true,
+				"acceptSslCerts" : true,
+				"phantomjs.binary.path" : "./node_modules/phantomjs-prebuilt/bin/phantomjs",
+				"phantomjs.cli.args" : []
+			}
+		},
+
+		"firefox" : {
+			"desiredCapabilities" : {
+				"browserName" : "firefox",
+				"javascriptEnabled" : true,
+				"acceptSslCerts" : true
+			}
+		},
+
+		"prod_firefox" : {
+			"launch_url": "https://visas-immigration.service.gov.uk",
+			"desiredCapabilities" : {
+				"browserName" : "firefox",
+				"javascriptEnabled" : true,
+				"acceptSslCerts" : true
+			}
+		},
+
+		"prod_chrome" : {
+				"launch_url": "https://visas-immigration.service.gov.uk",
+				"desiredCapabilities" : {
+						"browserName" : "chrome",
+						"javascriptEnabled" : true,
+						"acceptSslCerts" : true
+				}
+		}
+
+	}
+}
